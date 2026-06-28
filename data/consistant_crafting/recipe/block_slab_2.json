@@ -1,12 +1,9 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "pattern": [
-    "a"
+  "ingredients": [
+    "minecraft:granite"
   ],
-  "key": {
-    "a": "minecraft:granite"
-  },
   "result": {
     "id": "minecraft:granite_slab",
     "count": 2

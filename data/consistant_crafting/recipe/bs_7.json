@@ -1,12 +1,9 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "pattern": [
-    "a"
+  "ingredients": [
+    "minecraft:polished_tuff"
   ],
-  "key": {
-    "a": "minecraft:polished_tuff"
-  },
   "result": {
     "id": "minecraft:polished_tuff_slab",
     "count": 2

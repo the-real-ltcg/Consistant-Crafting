@@ -2,10 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "minecraft:tuff"
+    "minecraft:waxed_weathered_cut_copper"
   ],
   "result": {
-    "id": "minecraft:tuff_slab",
+    "id": "minecraft:waxed_weathered_cut_copper_slab",
     "count": 2
   }
 }
