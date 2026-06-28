@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "a"
+  ],
+  "key": {
+    "a": "minecraft:granite"
+  },
+  "result": {
+    "id": "minecraft:granite_slab",
+    "count": 2
+  }
+}
