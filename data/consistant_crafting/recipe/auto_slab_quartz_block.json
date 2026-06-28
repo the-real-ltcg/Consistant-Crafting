@@ -2,10 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "minecraft:tuff"
+    "minecraft:quartz_block"
   ],
   "result": {
-    "id": "minecraft:tuff_slab",
+    "id": "minecraft:quartz_slab",
     "count": 2
   }
 }

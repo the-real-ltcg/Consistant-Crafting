@@ -1,12 +1,9 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "pattern": [
-    "a"
+  "ingredients": [
+    "minecraft:diorite"
   ],
-  "key": {
-    "a": "minecraft:diorite"
-  },
   "result": {
     "id": "minecraft:diorite_slab",
     "count": 2
