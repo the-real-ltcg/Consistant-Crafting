@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:polished_tuff"
+  ],
+  "result": {
+    "id": "minecraft:polished_tuff_slab",
+    "count": 2
+  }
+}
