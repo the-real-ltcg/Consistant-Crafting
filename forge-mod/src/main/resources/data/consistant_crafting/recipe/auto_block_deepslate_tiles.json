@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:deepslate_tile_stairs",
+    "minecraft:deepslate_tile_stairs",
+    "minecraft:deepslate_tile_stairs",
+    "minecraft:deepslate_tile_stairs"
+  ],
+  "result": {
+    "id": "minecraft:deepslate_tiles",
+    "count": 3
+  }
+}

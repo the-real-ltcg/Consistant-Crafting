@@ -4,10 +4,10 @@ license = "MIT"
 
 [[mods]]
 modId = "consistant_crafting"
-version = "1.0.0"
+version = "1.1.0"
 displayName = "Consistant Crafting"
 authors = "the-real-ltcg"
-description = '''Rebalances inconsistent vanilla crafting yields (slabs, bread, buckets) via data pack recipes bundled in the mod.'''
+description = '''Rebalances inconsistent vanilla crafting yields (slabs, bread, buckets, paper, stairs, shulker boxes) and adds a bow+dropper=dispenser recipe, via data pack recipes bundled in the mod.'''
 
 [[dependencies.consistant_crafting]]
     modId = "forge"

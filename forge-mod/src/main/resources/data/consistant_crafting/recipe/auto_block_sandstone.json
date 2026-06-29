@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:sandstone_stairs",
+    "minecraft:sandstone_stairs",
+    "minecraft:sandstone_stairs",
+    "minecraft:sandstone_stairs"
+  ],
+  "result": {
+    "id": "minecraft:sandstone",
+    "count": 3
+  }
+}
