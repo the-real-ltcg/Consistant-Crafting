@@ -2,6 +2,7 @@ package com.consistantcrafting.bukkit;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Keyed;
+import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
@@ -9,6 +10,7 @@ import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Plain Bukkit/Spigot/Paper API plugin that ports the Consistant Crafting
@@ -16,17 +18,21 @@ import java.util.Iterator;
  * on any Bukkit-API server (Spigot/Paper/Purpur/Folia) regardless of which
  * mod/plugin loader is in play.
  *
- * For each entry in {@link RecipeDefs#ALL} this:
- *  1. Removes any vanilla ("minecraft:...") simple/shapeless recipe that
- *     produces the exact same result Material, since it's being directly
- *     superseded by our rebalanced version with the same output.
- *  2. Registers a new ShapelessRecipe under the "consistantcrafting"
- *     namespace requiring N copies of one ingredient Material.
+ * Three recipe sets, registered differently:
+ *  - {@link RecipeDefs#ALL}: single-ingredient "fix" recipes (slabs, bread,
+ *    bucket, paper) that replace a vanilla recipe outright - the existing
+ *    vanilla recipe for that exact result is removed first.
+ *  - {@link RecipeDefs#ADDITIVE}: stairs-to-block recipes. Purely additive -
+ *    no vanilla recipe is removed, since results like planks already have
+ *    other legitimate vanilla recipes (e.g. log -> planks) that must keep
+ *    working.
+ *  - {@link RecipeDefs#MULTI}: recipes with more than one distinct
+ *    ingredient Material (shulker box, dispenser). Each entry decides for
+ *    itself whether to remove the existing vanilla recipe.
  *
- * We intentionally only remove vanilla recipes (key namespace "minecraft")
- * whose result matches our new result exactly - we never touch other
- * plugins' custom recipes, and we never remove a vanilla recipe for an
- * item we are NOT replacing.
+ * We intentionally only ever remove vanilla recipes (key namespace
+ * "minecraft") whose result matches our new result exactly - we never touch
+ * other plugins' custom recipes.
  */
 public final class ConsistentCraftingPlugin extends JavaPlugin {
 
@@ -37,21 +43,52 @@ public final class ConsistentCraftingPlugin extends JavaPlugin {
         int registered = 0;
         for (RecipeDef def : RecipeDefs.ALL) {
             removeVanillaRecipesForResult(def.result());
-
-            NamespacedKey key = new NamespacedKey(NAMESPACE, def.key());
-            ItemStack result = new ItemStack(def.result(), def.resultCount());
-            ShapelessRecipe recipe = new ShapelessRecipe(key, result);
-            recipe.addIngredient(def.ingredientCount(), def.ingredient());
-
-            // Replace our own recipe on reload, and append fresh otherwise.
-            Bukkit.removeRecipe(key);
-            if (Bukkit.addRecipe(recipe)) {
+            if (registerShapeless(def.key(), def.result(), def.resultCount(),
+                    List.of(new RecipeDefs.IngredientStack(def.ingredient(), def.ingredientCount())))) {
                 registered++;
-            } else {
-                getLogger().warning("Failed to register recipe: " + key);
             }
         }
-        getLogger().info("Consistent Crafting loaded (" + registered + "/" + RecipeDefs.ALL.size() + " recipes registered)");
+
+        // Stairs-to-block recipes: purely additive, no vanilla recipe removal,
+        // since the result Material (e.g. planks) keeps its other vanilla
+        // recipes (e.g. log -> planks) intact.
+        for (RecipeDef def : RecipeDefs.ADDITIVE) {
+            if (registerShapeless(def.key(), def.result(), def.resultCount(),
+                    List.of(new RecipeDefs.IngredientStack(def.ingredient(), def.ingredientCount())))) {
+                registered++;
+            }
+        }
+
+        // Multi-ingredient recipes (shulker box, dispenser).
+        for (RecipeDefs.MultiRecipeDef def : RecipeDefs.MULTI) {
+            if (def.removeVanilla()) {
+                removeVanillaRecipesForResult(def.result());
+            }
+            if (registerShapeless(def.key(), def.result(), def.resultCount(), def.ingredients())) {
+                registered++;
+            }
+        }
+
+        int total = RecipeDefs.ALL.size() + RecipeDefs.ADDITIVE.size() + RecipeDefs.MULTI.size();
+        getLogger().info("Consistent Crafting loaded (" + registered + "/" + total + " recipes registered)");
+    }
+
+    private boolean registerShapeless(String key, Material result, int resultCount,
+                                       List<RecipeDefs.IngredientStack> ingredients) {
+        NamespacedKey recipeKey = new NamespacedKey(NAMESPACE, key);
+        ItemStack resultStack = new ItemStack(result, resultCount);
+        ShapelessRecipe recipe = new ShapelessRecipe(recipeKey, resultStack);
+        for (RecipeDefs.IngredientStack ingredient : ingredients) {
+            recipe.addIngredient(ingredient.count(), ingredient.material());
+        }
+
+        // Replace our own recipe on reload, and append fresh otherwise.
+        Bukkit.removeRecipe(recipeKey);
+        if (Bukkit.addRecipe(recipe)) {
+            return true;
+        }
+        getLogger().warning("Failed to register recipe: " + recipeKey);
+        return false;
     }
 
     /**
@@ -60,7 +97,7 @@ public final class ConsistentCraftingPlugin extends JavaPlugin {
      * to craft that result via crafting table. Recipes registered by other
      * plugins are left untouched.
      */
-    private void removeVanillaRecipesForResult(org.bukkit.Material result) {
+    private void removeVanillaRecipesForResult(Material result) {
         Iterator<Recipe> it = Bukkit.recipeIterator();
         while (it.hasNext()) {
             Recipe recipe = it.next();

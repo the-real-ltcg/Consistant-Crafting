@@ -91,6 +91,100 @@ final class RecipeDefs {
         new RecipeDef("bs_8", Material.TUFF_BRICKS, 1, Material.TUFF_BRICK_SLAB, 2),
         new RecipeDef("bs_9", Material.RESIN_BRICKS, 1, Material.RESIN_BRICK_SLAB, 2),
         new RecipeDef("better_bread", Material.WHEAT, 3, Material.BREAD, 3),
-        new RecipeDef("better_bucket", Material.IRON_INGOT, 3, Material.BUCKET, 1)
+        new RecipeDef("better_bucket", Material.IRON_INGOT, 3, Material.BUCKET, 1),
+        new RecipeDef("better_paper", Material.SUGAR_CANE, 3, Material.PAPER, 3)
+    );
+
+    /**
+     * Stairs-to-block recipes (4 stairs -> 3 of the original block). These are
+     * purely additive: unlike ALL, the plugin must NOT remove existing vanilla
+     * recipes for the result Material here, since most of these blocks (e.g.
+     * planks) already have other legitimate vanilla recipes (log -> planks)
+     * that must keep working.
+     */
+    static final List<RecipeDef> ADDITIVE = List.of(
+        new RecipeDef("auto_block_acacia_planks", Material.ACACIA_STAIRS, 4, Material.ACACIA_PLANKS, 3),
+        new RecipeDef("auto_block_andesite", Material.ANDESITE_STAIRS, 4, Material.ANDESITE, 3),
+        new RecipeDef("auto_block_bamboo_mosaic", Material.BAMBOO_MOSAIC_STAIRS, 4, Material.BAMBOO_MOSAIC, 3),
+        new RecipeDef("auto_block_bamboo_planks", Material.BAMBOO_STAIRS, 4, Material.BAMBOO_PLANKS, 3),
+        new RecipeDef("auto_block_birch_planks", Material.BIRCH_STAIRS, 4, Material.BIRCH_PLANKS, 3),
+        new RecipeDef("auto_block_blackstone", Material.BLACKSTONE_STAIRS, 4, Material.BLACKSTONE, 3),
+        new RecipeDef("auto_block_bricks", Material.BRICK_STAIRS, 4, Material.BRICKS, 3),
+        new RecipeDef("auto_block_cherry_planks", Material.CHERRY_STAIRS, 4, Material.CHERRY_PLANKS, 3),
+        new RecipeDef("auto_block_cobbled_deepslate", Material.COBBLED_DEEPSLATE_STAIRS, 4, Material.COBBLED_DEEPSLATE, 3),
+        new RecipeDef("auto_block_cobblestone", Material.COBBLESTONE_STAIRS, 4, Material.COBBLESTONE, 3),
+        new RecipeDef("auto_block_crimson_planks", Material.CRIMSON_STAIRS, 4, Material.CRIMSON_PLANKS, 3),
+        new RecipeDef("auto_block_cut_copper", Material.CUT_COPPER_STAIRS, 4, Material.CUT_COPPER, 3),
+        new RecipeDef("auto_block_dark_oak_planks", Material.DARK_OAK_STAIRS, 4, Material.DARK_OAK_PLANKS, 3),
+        new RecipeDef("auto_block_dark_prismarine", Material.DARK_PRISMARINE_STAIRS, 4, Material.DARK_PRISMARINE, 3),
+        new RecipeDef("auto_block_deepslate_bricks", Material.DEEPSLATE_BRICK_STAIRS, 4, Material.DEEPSLATE_BRICKS, 3),
+        new RecipeDef("auto_block_deepslate_tiles", Material.DEEPSLATE_TILE_STAIRS, 4, Material.DEEPSLATE_TILES, 3),
+        new RecipeDef("auto_block_end_stone_bricks", Material.END_STONE_BRICK_STAIRS, 4, Material.END_STONE_BRICKS, 3),
+        new RecipeDef("auto_block_exposed_cut_copper", Material.EXPOSED_CUT_COPPER_STAIRS, 4, Material.EXPOSED_CUT_COPPER, 3),
+        new RecipeDef("auto_block_jungle_planks", Material.JUNGLE_STAIRS, 4, Material.JUNGLE_PLANKS, 3),
+        new RecipeDef("auto_block_mangrove_planks", Material.MANGROVE_STAIRS, 4, Material.MANGROVE_PLANKS, 3),
+        new RecipeDef("auto_block_mossy_cobblestone", Material.MOSSY_COBBLESTONE_STAIRS, 4, Material.MOSSY_COBBLESTONE, 3),
+        new RecipeDef("auto_block_mossy_stone_bricks", Material.MOSSY_STONE_BRICK_STAIRS, 4, Material.MOSSY_STONE_BRICKS, 3),
+        new RecipeDef("auto_block_mud_bricks", Material.MUD_BRICK_STAIRS, 4, Material.MUD_BRICKS, 3),
+        new RecipeDef("auto_block_nether_bricks", Material.NETHER_BRICK_STAIRS, 4, Material.NETHER_BRICKS, 3),
+        new RecipeDef("auto_block_oak_planks", Material.OAK_STAIRS, 4, Material.OAK_PLANKS, 3),
+        new RecipeDef("auto_block_oxidized_cut_copper", Material.OXIDIZED_CUT_COPPER_STAIRS, 4, Material.OXIDIZED_CUT_COPPER, 3),
+        new RecipeDef("auto_block_pale_oak_planks", Material.PALE_OAK_STAIRS, 4, Material.PALE_OAK_PLANKS, 3),
+        new RecipeDef("auto_block_polished_andesite", Material.POLISHED_ANDESITE_STAIRS, 4, Material.POLISHED_ANDESITE, 3),
+        new RecipeDef("auto_block_polished_blackstone", Material.POLISHED_BLACKSTONE_STAIRS, 4, Material.POLISHED_BLACKSTONE, 3),
+        new RecipeDef("auto_block_polished_blackstone_bricks", Material.POLISHED_BLACKSTONE_BRICK_STAIRS, 4, Material.POLISHED_BLACKSTONE_BRICKS, 3),
+        new RecipeDef("auto_block_polished_deepslate", Material.POLISHED_DEEPSLATE_STAIRS, 4, Material.POLISHED_DEEPSLATE, 3),
+        new RecipeDef("auto_block_prismarine", Material.PRISMARINE_STAIRS, 4, Material.PRISMARINE, 3),
+        new RecipeDef("auto_block_prismarine_bricks", Material.PRISMARINE_BRICK_STAIRS, 4, Material.PRISMARINE_BRICKS, 3),
+        new RecipeDef("auto_block_purpur_block", Material.PURPUR_STAIRS, 4, Material.PURPUR_BLOCK, 3),
+        new RecipeDef("auto_block_quartz_block", Material.QUARTZ_STAIRS, 4, Material.QUARTZ_BLOCK, 3),
+        new RecipeDef("auto_block_red_nether_bricks", Material.RED_NETHER_BRICK_STAIRS, 4, Material.RED_NETHER_BRICKS, 3),
+        new RecipeDef("auto_block_red_sandstone", Material.RED_SANDSTONE_STAIRS, 4, Material.RED_SANDSTONE, 3),
+        new RecipeDef("auto_block_sandstone", Material.SANDSTONE_STAIRS, 4, Material.SANDSTONE, 3),
+        new RecipeDef("auto_block_smooth_quartz", Material.SMOOTH_QUARTZ_STAIRS, 4, Material.SMOOTH_QUARTZ, 3),
+        new RecipeDef("auto_block_smooth_red_sandstone", Material.SMOOTH_RED_SANDSTONE_STAIRS, 4, Material.SMOOTH_RED_SANDSTONE, 3),
+        new RecipeDef("auto_block_smooth_sandstone", Material.SMOOTH_SANDSTONE_STAIRS, 4, Material.SMOOTH_SANDSTONE, 3),
+        new RecipeDef("auto_block_spruce_planks", Material.SPRUCE_STAIRS, 4, Material.SPRUCE_PLANKS, 3),
+        new RecipeDef("auto_block_stone_bricks", Material.STONE_BRICK_STAIRS, 4, Material.STONE_BRICKS, 3),
+        new RecipeDef("auto_block_warped_planks", Material.WARPED_STAIRS, 4, Material.WARPED_PLANKS, 3),
+        new RecipeDef("auto_block_waxed_cut_copper", Material.WAXED_CUT_COPPER_STAIRS, 4, Material.WAXED_CUT_COPPER, 3),
+        new RecipeDef("auto_block_waxed_exposed_cut_copper", Material.WAXED_EXPOSED_CUT_COPPER_STAIRS, 4, Material.WAXED_EXPOSED_CUT_COPPER, 3),
+        new RecipeDef("auto_block_waxed_oxidized_cut_copper", Material.WAXED_OXIDIZED_CUT_COPPER_STAIRS, 4, Material.WAXED_OXIDIZED_CUT_COPPER, 3),
+        new RecipeDef("auto_block_waxed_weathered_cut_copper", Material.WAXED_WEATHERED_CUT_COPPER_STAIRS, 4, Material.WAXED_WEATHERED_CUT_COPPER, 3),
+        new RecipeDef("auto_block_weathered_cut_copper", Material.WEATHERED_CUT_COPPER_STAIRS, 4, Material.WEATHERED_CUT_COPPER, 3),
+        new RecipeDef("auto_block_granite", Material.GRANITE_STAIRS, 4, Material.GRANITE, 3),
+        new RecipeDef("auto_block_polished_granite", Material.POLISHED_GRANITE_STAIRS, 4, Material.POLISHED_GRANITE, 3),
+        new RecipeDef("auto_block_diorite", Material.DIORITE_STAIRS, 4, Material.DIORITE, 3),
+        new RecipeDef("auto_block_polished_diorite", Material.POLISHED_DIORITE_STAIRS, 4, Material.POLISHED_DIORITE, 3),
+        new RecipeDef("auto_block_tuff", Material.TUFF_STAIRS, 4, Material.TUFF, 3),
+        new RecipeDef("auto_block_polished_tuff", Material.POLISHED_TUFF_STAIRS, 4, Material.POLISHED_TUFF, 3),
+        new RecipeDef("auto_block_tuff_bricks", Material.TUFF_BRICK_STAIRS, 4, Material.TUFF_BRICKS, 3),
+        new RecipeDef("auto_block_resin_bricks", Material.RESIN_BRICK_STAIRS, 4, Material.RESIN_BRICKS, 3)
+    );
+
+    /** One Material + count entry within a MultiRecipeDef's ingredient list. */
+    record IngredientStack(Material material, int count) {
+    }
+
+    /**
+     * A shapeless recipe with more than one distinct ingredient Material,
+     * which doesn't fit RecipeDef's single-ingredient-type model.
+     */
+    record MultiRecipeDef(String key, List<IngredientStack> ingredients, Material result, int resultCount,
+                           boolean removeVanilla) {
+    }
+
+    static final List<MultiRecipeDef> MULTI = List.of(
+        // Identical in substance to vanilla's existing shapeless recipe; kept
+        // explicit and still removes+re-adds it for consistency with the rest
+        // of this mod's "make it shapeless" recipes.
+        new MultiRecipeDef("better_shulker_box",
+            List.of(new IngredientStack(Material.CHEST, 1), new IngredientStack(Material.SHULKER_SHELL, 1)),
+            Material.SHULKER_BOX, 1, true),
+        // Purely additive alternate recipe; the vanilla bow+cobblestone+redstone
+        // recipe for a dispenser is left intact.
+        new MultiRecipeDef("bow_dropper_dispenser",
+            List.of(new IngredientStack(Material.BOW, 1), new IngredientStack(Material.DROPPER, 1)),
+            Material.DISPENSER, 1, false)
     );
 }
