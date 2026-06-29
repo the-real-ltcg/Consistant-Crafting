@@ -1,0 +1,39 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version '1.17.12'
+    id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    // No mappings dependency: Minecraft 26.1+ ships unobfuscated with official
+    // Mojang names, so Loom no longer remaps anything.
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    // Static recipe JSON does not require Fabric API, kept here only in case
+    // future logic needs it. Remove if unused to slim the jar.
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+}
+
+processResources {
+    inputs.property "version", project.mod_version
+    filteringCharset "UTF-8"
+    filesMatching("fabric.mod.json") {
+        expand "version": project.mod_version
+    }
+}

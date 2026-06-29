@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:andesite"
+  ],
+  "result": {
+    "id": "minecraft:andesite_slab",
+    "count": 2
+  }
+}

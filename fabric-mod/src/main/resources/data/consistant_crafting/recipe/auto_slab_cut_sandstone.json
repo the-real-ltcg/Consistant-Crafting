@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:cut_sandstone"
+  ],
+  "result": {
+    "id": "minecraft:cut_sandstone_slab",
+    "count": 2
+  }
+}

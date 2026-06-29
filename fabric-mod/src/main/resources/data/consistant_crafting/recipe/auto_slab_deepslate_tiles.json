@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:deepslate_tiles"
+  ],
+  "result": {
+    "id": "minecraft:deepslate_tile_slab",
+    "count": 2
+  }
+}

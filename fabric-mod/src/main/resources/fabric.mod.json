@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "consistant_crafting",
+  "version": "${version}",
+  "name": "Consistant Crafting",
+  "description": "Rebalances inconsistent vanilla crafting yields (slabs, bread, buckets) via data pack recipes bundled in the mod.",
+  "authors": ["the-real-ltcg"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.consistantcrafting.fabric.ConsistantCraftingFabric"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.0",
+    "minecraft": "~26.2",
+    "java": ">=25"
+  }
+}
