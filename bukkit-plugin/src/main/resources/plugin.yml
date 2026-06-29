@@ -1,0 +1,6 @@
+name: ConsistentCrafting
+version: '1.0.0'
+main: com.consistantcrafting.bukkit.ConsistentCraftingPlugin
+api-version: '26.2'
+author: the-real-ltcg
+description: Rebalances inconsistent vanilla crafting yields (slabs, bread, buckets) via Java-registered shapeless recipes.
