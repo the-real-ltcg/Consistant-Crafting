@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:prismarine_stairs",
+    "minecraft:prismarine_stairs",
+    "minecraft:prismarine_stairs",
+    "minecraft:prismarine_stairs"
+  ],
+  "result": {
+    "id": "minecraft:prismarine",
+    "count": 3
+  }
+}

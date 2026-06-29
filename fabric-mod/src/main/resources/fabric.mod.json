@@ -3,7 +3,7 @@
   "id": "consistant_crafting",
   "version": "${version}",
   "name": "Consistant Crafting",
-  "description": "Rebalances inconsistent vanilla crafting yields (slabs, bread, buckets) via data pack recipes bundled in the mod.",
+  "description": "Rebalances inconsistent vanilla crafting yields (slabs, bread, buckets, paper, stairs, shulker boxes) and adds a bow+dropper=dispenser recipe, via data pack recipes bundled in the mod.",
   "authors": ["the-real-ltcg"],
   "license": "MIT",
   "environment": "*",

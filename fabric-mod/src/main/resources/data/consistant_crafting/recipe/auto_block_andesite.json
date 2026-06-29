@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:andesite_stairs",
+    "minecraft:andesite_stairs",
+    "minecraft:andesite_stairs",
+    "minecraft:andesite_stairs"
+  ],
+  "result": {
+    "id": "minecraft:andesite",
+    "count": 3
+  }
+}
