@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:bamboo_mosaic_stairs",
+    "minecraft:bamboo_mosaic_stairs",
+    "minecraft:bamboo_mosaic_stairs",
+    "minecraft:bamboo_mosaic_stairs"
+  ],
+  "result": {
+    "id": "minecraft:bamboo_mosaic",
+    "count": 3
+  }
+}

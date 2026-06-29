@@ -1,0 +1,5 @@
+# Heterogeneous (multiple distinct ingredient types) recipes, not representable
+# in master_recipes.txt's single-ingredient|count format.
+# name|ingredient1:count1,ingredient2:count2,...|result|result_count
+better_shulker_box|minecraft:chest:1,minecraft:shulker_shell:1|minecraft:shulker_box|1
+bow_dropper_dispenser|minecraft:bow:1,minecraft:dropper:1|minecraft:dispenser|1
