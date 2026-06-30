@@ -174,6 +174,24 @@ final class RecipeDefs {
                            boolean removeVanilla) {
     }
 
+    /** Button materials whose vanilla crafting recipes should be removed entirely (no replacement). */
+    static final List<Material> REMOVE_ONLY = List.of(
+        Material.OAK_BUTTON,
+        Material.SPRUCE_BUTTON,
+        Material.BIRCH_BUTTON,
+        Material.JUNGLE_BUTTON,
+        Material.ACACIA_BUTTON,
+        Material.DARK_OAK_BUTTON,
+        Material.MANGROVE_BUTTON,
+        Material.CHERRY_BUTTON,
+        Material.BAMBOO_BUTTON,
+        Material.CRIMSON_BUTTON,
+        Material.WARPED_BUTTON,
+        Material.PALE_OAK_BUTTON,
+        Material.STONE_BUTTON,
+        Material.POLISHED_BLACKSTONE_BUTTON
+    );
+
     static final List<MultiRecipeDef> MULTI = List.of(
         // Identical in substance to vanilla's existing shapeless recipe; kept
         // explicit and still removes+re-adds it for consistency with the rest

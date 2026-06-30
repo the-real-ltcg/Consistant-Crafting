@@ -69,6 +69,11 @@ public final class ConsistentCraftingPlugin extends JavaPlugin {
             }
         }
 
+        // Remove-only: vanilla button recipes are removed with no replacement.
+        for (Material mat : RecipeDefs.REMOVE_ONLY) {
+            removeVanillaRecipesForResult(mat);
+        }
+
         int total = RecipeDefs.ALL.size() + RecipeDefs.ADDITIVE.size() + RecipeDefs.MULTI.size();
         getLogger().info("Consistent Crafting loaded (" + registered + "/" + total + " recipes registered)");
     }
