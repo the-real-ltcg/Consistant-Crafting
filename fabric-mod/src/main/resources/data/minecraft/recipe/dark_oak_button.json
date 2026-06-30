@@ -1,0 +1,9 @@
+﻿{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": ["minecraft:barrier"],
+  "result": {
+    "id": "minecraft:dark_oak_button",
+    "count": 1
+  }
+}
