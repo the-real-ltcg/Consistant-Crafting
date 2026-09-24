@@ -26,7 +26,7 @@ dependencies {
     // version below if a newer Paper API snapshot is preferred, or swap to
     // org.spigotmc:spigot-api if Paper-only APIs are ever introduced and you
     // need plain Spigot support instead (none are used currently).
-    compileOnly 'io.papermc.paper:paper-api:26.2.build.+'
+    compileOnly 'io.papermc.paper:paper-api:26.3.build.+'
 }
 
 tasks.withType(JavaCompile).configureEach {
